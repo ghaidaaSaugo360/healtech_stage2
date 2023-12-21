@@ -132,7 +132,7 @@ def send_message(item, patient_data, template):
         print("item", item.body)
         if not item.body:
             print("t")
-            attachment_response = requests.get('http://127.0.0.1:8000/attachment-reminders/', params={'templateID': item.idTemplates})
+            attachment_response = requests.get('https://healtech13.azurewebsites.net/attachment-reminders/', params={'templateID': item.idTemplates})
             print("res", attachment_response)
             attachment_data = attachment_response.json()
   
