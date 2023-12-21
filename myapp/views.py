@@ -445,15 +445,15 @@ class FilesViewSet(viewsets.ModelViewSet):
 import os
 
 def serve_file(request, file_name):
-    # Construct the full path to the file
-    file_path = os.path.join(settings.MEDIA_ROOT, 'attachments', file_name)
 
+    file_path = os.path.join(settings.MEDIA_ROOT, 'attachments', file_name)
     if os.path.exists(file_path):
         # Open and serve the file
         with open(file_path, 'rb') as file:
             response = FileResponse(file)
             # Set the Content-Disposition header for inline display
             response['Content-Disposition'] = 'inline; filename="' + os.path.basename(file_path) + '"'
+            response['Content-Security-Policy'] = 'upgrade-insecure-requests'  # Add this line
             return response
     else:
         # Handle the case where the file does not exist
@@ -481,13 +481,15 @@ def receive_whatsapp_message(request):
     if request.method == 'POST':
         try:
             payload = json.loads(request.body)
-            
+
             # Process the incoming payload as needed
             print("Received forwarded message:", payload)
 
             # Add your custom logic here to process the forwarded message
-            
-            return JsonResponse({'status': 'success'})
+
+            response = JsonResponse({'status': 'success'})
+            response['Content-Security-Policy'] = 'upgrade-insecure-requests'  # Add this line
+            return response
         except json.JSONDecodeError as e:
             return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
 
