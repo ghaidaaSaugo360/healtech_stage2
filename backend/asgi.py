@@ -9,7 +9,7 @@ import myapp.routing
  
  
 application = ProtocolTypeRouter({
-    "http": get_asgi_application(),
+    "https": get_asgi_application(),
     "websocket": AuthMiddlewareStack(
         URLRouter(
             myapp.routing.websocket_urlpatterns
