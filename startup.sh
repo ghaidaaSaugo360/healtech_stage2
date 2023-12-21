@@ -1,6 +1,1 @@
-# Start Gunicorn for Django
-gunicorn backend.wsgi:application
- 
-# Start Daphne for ASGI
-daphne backend.asgi:application
-
+daphne -p 8000 --bind 0.0.0.0 backend.asgi:application
