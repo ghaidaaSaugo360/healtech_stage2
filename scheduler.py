@@ -123,7 +123,7 @@ def scheduled_function():
 
 def send_message(item, patient_data, template):
     try:
-        auth_token = 'EAAFSezp24bEBOZClnAdjpDdQkR5VbiBlZBpasajiAhqmBBAU9dRzv8yaPMiywHgmSfcll2JidnlevI6MVjBiqn2Qqua8q4m6BhhfllM7vgWc072d5TpAIJpLcC4vpDFNbborjjZBFHjafvdJeLh4GIT8qnLQRjKqKA7JKbJeVRhQQIbiCXZBXcjPRSReU5meZCTDCwRI69ZArd1bqnUOP8GEzZClxQMafN4VzzN7veT0YYZD'
+        auth_token = 'EAAJ0ZApM92koBOw5GRa4yb2mIF7PdV7dyJOGgSDrxMehddOLS2WzzDD9FZCW7sBqQMWFu4HP4RquvUZA2YvEJvwhxEnexiqhgZA7jSF5rcnZBxLFKivOjyEmSS1S29SPiBzw3o7IyddVAFuUDasloPn9iadpLOkeghioMyOzEM40ZAWBQZB7mRTdvDlrQZCg2IERbVAuBMi7XEzibbE7Hrj4GElGBHRdMY8oFeH6fUZBkXL0ZD'
         phone_number_id = '189179114270760'
         api_url_media = f'https://graph.facebook.com/v17.0/{phone_number_id}/media'
         api_url = f'https://graph.facebook.com/v17.0/189179114270760/messages'
@@ -267,7 +267,7 @@ def get_media_content(media_type):
 def send_reply_template(patient_data):
     try:
        
-        auth_token = 'EAAFSezp24bEBOZClnAdjpDdQkR5VbiBlZBpasajiAhqmBBAU9dRzv8yaPMiywHgmSfcll2JidnlevI6MVjBiqn2Qqua8q4m6BhhfllM7vgWc072d5TpAIJpLcC4vpDFNbborjjZBFHjafvdJeLh4GIT8qnLQRjKqKA7JKbJeVRhQQIbiCXZBXcjPRSReU5meZCTDCwRI69ZArd1bqnUOP8GEzZClxQMafN4VzzN7veT0YYZD'
+        auth_token = 'EAAJ0ZApM92koBOw5GRa4yb2mIF7PdV7dyJOGgSDrxMehddOLS2WzzDD9FZCW7sBqQMWFu4HP4RquvUZA2YvEJvwhxEnexiqhgZA7jSF5rcnZBxLFKivOjyEmSS1S29SPiBzw3o7IyddVAFuUDasloPn9iadpLOkeghioMyOzEM40ZAWBQZB7mRTdvDlrQZCg2IERbVAuBMi7XEzibbE7Hrj4GElGBHRdMY8oFeH6fUZBkXL0ZD'
         recipient_phone = patient_data.phone
         apiUrl = 'https://graph.facebook.com/v17.0/189179114270760/messages'
 
