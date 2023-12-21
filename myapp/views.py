@@ -916,8 +916,7 @@ def create_media(request):
         encoded_data = base64.b64encode(binary_data).decode('utf-8')
 
         # Ensure media_data starts with "https://"
-        if not encoded_data.startswith('https://'):
-            encoded_data = 'https://' + encoded_data
+        encoded_data = 'https://' + encoded_data
 
         # Save to database
         media = Media.objects.create(
