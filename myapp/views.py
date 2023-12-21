@@ -901,6 +901,7 @@ class MediaViewSet(viewsets.ModelViewSet):
 import base64
 
 @api_view(['POST'])
+
 def create_media(request):
     if request.method == 'POST':
         media_id = request.data.get('media_id')
@@ -914,6 +915,10 @@ def create_media(request):
         # Base64 encode binary data
         encoded_data = base64.b64encode(binary_data).decode('utf-8')
 
+        # Ensure media_data starts with "https://"
+        if not encoded_data.startswith('https://'):
+            encoded_data = 'https://' + encoded_data
+
         # Save to database
         media = Media.objects.create(
             media_id=media_id,
@@ -921,9 +926,9 @@ def create_media(request):
             media_data=encoded_data
         )
 
-        return Response({'status': 'success', 'media_id': media.id}, status=status.HTTP_201_CREATED)
+        return JsonResponse({'status': 'success', 'media_id': media.id}, status=status.HTTP_201_CREATED)
     else:
-        return Response({'status': 'error', 'message': 'Invalid request method'}, status=status.HTTP_400_BAD_REQUEST)
+        return JsonResponse({'status': 'error', 'message': 'Invalid request method'}, status=status.HTTP_400_BAD_REQUEST)
 
 class WhatsMessageViewSet(viewsets.ModelViewSet):
     queryset = WhatsMessage.objects.all()
