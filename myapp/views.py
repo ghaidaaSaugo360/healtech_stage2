@@ -453,7 +453,7 @@ def serve_file(request, file_name):
             response = FileResponse(file)
             # Set the Content-Disposition header for inline display
             response['Content-Disposition'] = 'inline; filename="' + os.path.basename(file_path) + '"'
-            response['Content-Security-Policy'] = 'upgrade-insecure-requests'  # Add this line
+            
             return response
     else:
         # Handle the case where the file does not exist
@@ -488,7 +488,7 @@ def receive_whatsapp_message(request):
             # Add your custom logic here to process the forwarded message
 
             response = JsonResponse({'status': 'success'})
-            response['Content-Security-Policy'] = 'upgrade-insecure-requests'  # Add this line
+            
             return response
         except json.JSONDecodeError as e:
             return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
