@@ -423,6 +423,7 @@ class BillingViewSet(viewsets.ModelViewSet):
         billing_entry.invoice_number = f'inv_{billing_entry.billing_id}'
         billing_entry.save()
 
+
         # Serialize and return the billing entry with the generated invoice_number
         serializer = self.get_serializer(billing_entry)
         return Response(serializer.data)
@@ -443,7 +444,7 @@ class FilesViewSet(viewsets.ModelViewSet):
     serializer_class = FilesSerializer
 
 import os
-
+#anything
 def serve_file(request, file_name):
 
     file_path = os.path.join(settings.MEDIA_ROOT, 'attachments', file_name)
