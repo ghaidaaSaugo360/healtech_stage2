@@ -901,7 +901,6 @@ class MediaViewSet(viewsets.ModelViewSet):
 import base64
 
 @api_view(['POST'])
-
 def create_media(request):
     if request.method == 'POST':
         media_id = request.data.get('media_id')
@@ -915,8 +914,6 @@ def create_media(request):
         # Base64 encode binary data
         encoded_data = base64.b64encode(binary_data).decode('utf-8')
 
-        # Ensure media_data starts with "https://"
-        encoded_data = 'https://' + encoded_data
 
         # Save to database
         media = Media.objects.create(
